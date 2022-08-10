@@ -52,14 +52,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Combat\AttackHandler.cs" />
-     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\Scripts\Spaceship.cs" />
-     <Compile Include="Assets\Scripts\SpaceshipController.cs" />
-     <Compile Include="Assets\Scripts\ScreenWrapper.cs" />
-     <Compile Include="Assets\Scripts\MovementHandler.cs" />
+     <Compile Include="Assets\Scripts\Combat\ShipAttackHandler.cs" />
+     <Compile Include="Assets\Scripts\MoveVelocity.cs" />
+     <Compile Include="Assets\Scripts\Asteroids\Asteroid.cs" />
      <Compile Include="Assets\Scripts\Combat\Weapon.cs" />
-     <Compile Include="Assets\Scripts\Combat\Projectile.cs" />
+     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Scripts\Ship\Spaceship.cs" />
+     <Compile Include="Assets\Scripts\Ship\SpaceshipController.cs" />
+     <Compile Include="Assets\Scripts\CountdownTimer.cs" />
+     <Compile Include="Assets\Scripts\ScreenWrapper.cs" />
+     <Compile Include="Assets\Scripts\Asteroids\AsteroidController.cs" />
+     <Compile Include="Assets\Scripts\Ship\ShipMovementHandler.cs" />
      <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
      <None Include="Assets\2D Space Kit\Readme.txt" />
      <None Include="Assets\2D Space Kit\Background Elements\Planets\Planet Masks\Note.txt" />
