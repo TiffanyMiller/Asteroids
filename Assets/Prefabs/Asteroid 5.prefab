@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8921105163268563809}
   - component: {fileID: 2915276099226621659}
   - component: {fileID: 7612219403692543475}
-  - component: {fileID: -717965237288019764}
   - component: {fileID: -5106686306292092583}
   m_Layer: 0
   m_Name: Asteroid 5
@@ -151,18 +150,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &-717965237288019764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3476396937809490579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f7d6e337d71a8b4a8ed168a33c2e915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-5106686306292092583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +165,6 @@ MonoBehaviour:
   stepsToDestroy: 3
   divisions: 2
   pointsPerFinalPieces: 10
+  moveSpeed: 2
+  _startScale: {x: 0, y: 0, z: 0}
+  _startSteps: 0

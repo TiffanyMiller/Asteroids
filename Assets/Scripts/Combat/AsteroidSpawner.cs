@@ -7,36 +7,30 @@ namespace Combat
     {
         private enum Direction { Left, Right, Top, Bottom }
         private Camera _cam;
-        [SerializeField] private GameObject asteroidPrefab;
         [SerializeField] private float secondsUntilSpawn;
-        [SerializeField] private float moveSpeed = 10f;
-        [SerializeField] private float lifetime = 2f;
-        private CountdownTimer _timer;
         private Direction _dir;
 
         private void Awake()
         {
             _cam = Camera.main;
-            _timer = gameObject.AddComponent<CountdownTimer>();
         }
 
         private void Start()
         {
-            _timer.SetTimer(secondsUntilSpawn, SpawnAsteroid);
+            CountdownTimer.Set(secondsUntilSpawn, SpawnAsteroid);
         }
 
         private void Update()
         {
-            if(_timer.IsTimerComplete()) 
-                _timer.SetTimer(secondsUntilSpawn, SpawnAsteroid);
+            CountdownTimer.Run();
+            
+            if(CountdownTimer.IsTimerComplete()) 
+                CountdownTimer.Set(secondsUntilSpawn, SpawnAsteroid);
         }
 
         private void SpawnAsteroid()
         {
-            var a = Instantiate(asteroidPrefab, RandomEdgePos(), Quaternion.identity);
-                
-            a.transform.localEulerAngles = RandomAngleInDirection();
-            a.GetComponent<MoveVelocity>().Setup(a.transform.up, moveSpeed, lifetime);
+            ObjectPooler.inst.SpawnFromPool("Asteroid", RandomEdgePos(), RandomAngleInDirection());
         }
 
         private Vector3 RandomAngleInDirection()

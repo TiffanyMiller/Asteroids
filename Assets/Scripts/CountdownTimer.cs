@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
 
-public class CountdownTimer : MonoBehaviour
+public static class CountdownTimer
 {
-   private Action _actionOnTimer;
-   private float _timer;
+   private static Action _actionOnTimer;
+   private static float _timer;
 
-   public void SetTimer(float timer, Action actionOnTimer)
+   public static void Set(float timer, Action actionOnTimer)
    {
       _timer = timer;
       _actionOnTimer = actionOnTimer;
    }
 
-   private void Update()
+   public static void Run()
    {
       if (_timer > 0)
       {
@@ -22,5 +22,5 @@ public class CountdownTimer : MonoBehaviour
       }
    }
 
-   public bool IsTimerComplete() => _timer <= 0;
+   public static bool IsTimerComplete() => _timer <= 0;
 }

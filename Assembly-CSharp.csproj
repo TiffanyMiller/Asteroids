@@ -67,7 +67,6 @@
      <Compile Include="Assets\Scripts\Ship\ShipHealthHandler.cs" />
      <Compile Include="Assets\Scripts\Combat\IEnemy.cs" />
      <Compile Include="Assets\Scripts\ObjectPooler.cs" />
-     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\IPooledObject.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />

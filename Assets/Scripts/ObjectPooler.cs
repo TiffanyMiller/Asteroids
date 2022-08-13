@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,13 +25,14 @@ public class ObjectPooler : MonoBehaviour
     {
         _poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
-        foreach (Pool pool in pools)
+        foreach (var pool in pools)
         {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
+            var objectPool = new Queue<GameObject>();
 
-            for (int i = 0; i < pool.size; i++)
+            for (var i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
+                var obj = Instantiate(pool.prefab);
+                obj.name += i;
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -41,7 +41,7 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool(string tag, Vector2 pos, Quaternion rot)
+    public GameObject SpawnFromPool(string tag, Vector2 pos, Vector3 rot)
     {
         if (!_poolDictionary.ContainsKey(tag))
         {
@@ -53,7 +53,7 @@ public class ObjectPooler : MonoBehaviour
         
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = pos;
-        objectToSpawn.transform.rotation = rot;
+        objectToSpawn.transform.localEulerAngles = rot;
         
         var pooledObject = objectToSpawn.GetComponent<IPooledObject>();
 

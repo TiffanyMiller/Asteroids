@@ -21,7 +21,7 @@ namespace Combat
             var p = Instantiate(weapon.projectile, transform.localPosition + (transform.up / 2), rot);
             var shipSpeed = _shipController.GetComponent<Rigidbody2D>().velocity.magnitude;
             
-            p.GetComponent<MoveVelocity>().Setup(dir, weapon.fireSpeed + shipSpeed, weapon.projectileLifetime);
+            p.GetComponent<MoveVelocity>().Setup(dir, weapon.fireSpeed + shipSpeed);
         }
 
         private IEnumerator Burst(Weapon weapon)
@@ -42,7 +42,7 @@ namespace Combat
         {
             StartCoroutine(Burst(starter));
         }
-
+        
         private void BlastAttack()
         {
         
