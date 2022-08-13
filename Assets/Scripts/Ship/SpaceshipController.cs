@@ -9,10 +9,11 @@ namespace Ship
 
         internal Action onMove, onEndMove, onEndRotate, onShoot;
         internal Action<int> onRotate;
-    
+
         private void Awake()
         {
             GetComponent<SpriteRenderer>().sprite = ship.sprite;
+
             // Collider is set up according to the sprite
             gameObject.AddComponent<PolygonCollider2D>();
         }

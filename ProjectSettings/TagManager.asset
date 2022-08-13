@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -44,9 +45,6 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2035140205
-    locked: 0
-  - name: Middleground
-    uniqueID: 2212233001
     locked: 0
   - name: Foreground
     uniqueID: 3544931229

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Ship
 {
+    [RequireComponent(typeof(SpaceshipController))]
     internal class ShipMovementHandler : MonoBehaviour
     {
         private float _moveSpeed;

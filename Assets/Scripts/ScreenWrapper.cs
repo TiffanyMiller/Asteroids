@@ -5,9 +5,11 @@ public class ScreenWrapper : MonoBehaviour
     private Camera _cam;
     private Renderer _rend;
     private Vector2 _viewportPos;
-    private Vector2 _newPos;
+    public Vector2 _newPos;
 
     private bool _outOfBoundsX, _outOfBoundsY;
+
+    public bool setNewPos = false;
 
     private void Awake()
     {

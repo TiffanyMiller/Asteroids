@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Combat
 {
+    [RequireComponent(typeof(SpaceshipController))]
     public class ShipAttackHandler : MonoBehaviour
     {
         private SpaceshipController _shipController;
