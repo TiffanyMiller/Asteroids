@@ -13,7 +13,6 @@ namespace Combat
 
         [SerializeField] private int pointsPerFinalPieces = 10;
         [SerializeField] private float moveSpeed = 10f;
-        [SerializeField] private float lifetime = 10f;
 
         public int Damage => stepsToDestroy;
 
@@ -34,7 +33,7 @@ namespace Combat
         {
             if (col.gameObject.CompareTag("Projectile"))
             {
-                Destroy(col.gameObject);
+                col.gameObject.SetActive(false);
                 
                 // If there are still stepsToDestroy, break the asteroid
                 if (stepsToDestroy > 1)

@@ -53,21 +53,24 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Combat\ShipAttackHandler.cs" />
+     <Compile Include="Assets\Scripts\IPooledObject.cs" />
      <Compile Include="Assets\Scripts\MoveVelocity.cs" />
      <Compile Include="Assets\Scripts\Combat\Asteroid.cs" />
+     <Compile Include="Assets\Scripts\Combat\IEnemy.cs" />
      <Compile Include="Assets\Scripts\Combat\Weapon.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Ship\Spaceship.cs" />
      <Compile Include="Assets\Scripts\Ship\SpaceshipController.cs" />
+     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\CountdownTimer.cs" />
      <Compile Include="Assets\Scripts\ScreenWrapper.cs" />
-     <Compile Include="Assets\Scripts\Combat\AsteroidSpawner.cs" />
+     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipMovementHandler.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipHealthHandler.cs" />
-     <Compile Include="Assets\Scripts\Combat\IEnemy.cs" />
-     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
-     <Compile Include="Assets\Scripts\IPooledObject.cs" />
+     <Compile Include="Assets\Scripts\AsteroidSpawner.cs" />
+     <Compile Include="Assets\Scripts\PowerupSpawner.cs" />
+     <Compile Include="Assets\Scripts\Powerups\Powerup.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

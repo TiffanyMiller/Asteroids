@@ -16,19 +16,29 @@ namespace Combat
             _shipController.onShoot = StartAttack;
         }
         
-        private void Shoot(Weapon weapon, Vector2 dir, Quaternion rot)
+        private void Shoot(Weapon weapon, Vector2 dir, Vector3 rot)
         {
-            var p = Instantiate(weapon.projectile, transform.localPosition + (transform.up / 2), rot);
+            var p = ObjectPooler.inst.SpawnFromPool(weapon.projectile.name, transform.localPosition + (transform.up / 2), rot);
             var shipSpeed = _shipController.GetComponent<Rigidbody2D>().velocity.magnitude;
             
-            p.GetComponent<MoveVelocity>().Setup(dir, weapon.fireSpeed + shipSpeed);
+            var rb = p.GetComponent<Rigidbody2D>();
+            rb.AddForce(dir * (weapon.fireSpeed + shipSpeed), ForceMode2D.Impulse);
+
+            StartCoroutine(Deactivate(p));
+        }
+
+        private IEnumerator Deactivate(GameObject projectile)
+        {
+            yield return new WaitForSeconds(2);
+            
+            projectile.SetActive(false);
         }
 
         private IEnumerator Burst(Weapon weapon)
         {
             var tr = transform;
             var dir = tr.up;
-            var rot = tr.rotation;
+            var rot = tr.localEulerAngles;
             
             for (var i = 0; i < weapon.bursts; i++)
             {

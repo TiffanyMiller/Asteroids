@@ -33,7 +33,8 @@ namespace Ship
 
                 for (var i = 0; i < enemy.Damage; i++)
                 {
-                    Destroy(lives.GetChild(i).gameObject);
+                    if(lives.childCount > 0)
+                        Destroy(lives.GetChild(i).gameObject);
                 }
             }
 

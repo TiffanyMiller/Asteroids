@@ -166,5 +166,4 @@ MonoBehaviour:
   divisions: 2
   pointsPerFinalPieces: 10
   moveSpeed: 2
-  _startScale: {x: 0, y: 0, z: 0}
-  _startSteps: 0
+  lifetime: 10

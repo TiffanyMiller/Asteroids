@@ -17,4 +17,4 @@ MonoBehaviour:
   moveDamp: 0.5
   rotationSpeed: 5
   rotationDamp: 0.05
-  startHealth: 10
+  startHealth: 3
