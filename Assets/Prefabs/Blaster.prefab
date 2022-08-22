@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1757672305794649545}
   - component: {fileID: 1757672305794649140}
   - component: {fileID: 1757672305794649143}
-  - component: {fileID: 786405379791422619}
+  - component: {fileID: 1000333751680846726}
   m_Layer: 0
   m_Name: Blaster
   m_TagString: Untagged
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &786405379791422619
+--- !u!114 &1000333751680846726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,10 +132,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1757672305794649544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0fd98122dfd41f4484a39bd1ca2e18b, type: 3}
+  m_Script: {fileID: 11500000, guid: 79b0dd2e06b00134391f5cbd687d8e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  blasterWeapon: {fileID: 11400000, guid: 65113015968284049bae053a81ff580a, type: 2}
 --- !u!1 &1757672305890288300
 GameObject:
   m_ObjectHideFlags: 0

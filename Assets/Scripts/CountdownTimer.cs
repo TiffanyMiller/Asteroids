@@ -4,7 +4,7 @@ using UnityEngine;
 public class CountdownTimer
 {
    private Action _actionOnTimer;
-   private float _timer;
+   public float _timer;
 
    public void Set(float timer, Action actionOnTimer)
    {
@@ -18,7 +18,10 @@ public class CountdownTimer
       {
          _timer -= Time.deltaTime;
 
-         if (IsTimerComplete()) _actionOnTimer?.Invoke();
+         if (IsTimerComplete())
+         {
+            _actionOnTimer?.Invoke();
+         }
       }
    }
 

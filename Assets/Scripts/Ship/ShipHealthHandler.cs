@@ -5,20 +5,30 @@ namespace Ship
     [RequireComponent(typeof(SpaceshipController))]
     public class ShipHealthHandler : MonoBehaviour
     {
+        public static ShipHealthHandler inst;
         private Spaceship _ship;
         private int _health;
-        [SerializeField] private Transform lives;
+
+        [SerializeField] private Transform lifeHolder;
         [SerializeField] private GameObject life;
+        [SerializeField] private GameObject shield;
+
+        public bool ignoreDamage;
         
         private void Awake()
         {
+            inst = this;
+            
             _ship = GetComponent<SpaceshipController>().ship;
+            
             _health = _ship.startHealth;
 
             for (var i = 0; i < _health; i++)
             {
-                Instantiate(life, lives);
+                Instantiate(life, lifeHolder);
             }
+            
+            SetShield(false);
         }
         
         private void OnCollisionEnter2D(Collision2D col)
@@ -27,19 +37,27 @@ namespace Ship
             
             if (enemy == null) return;
 
-            if (_health > 0)
+            if (_health > 0 && !ignoreDamage)
             {
                 _health -= enemy.Damage;
 
                 for (var i = 0; i < enemy.Damage; i++)
                 {
-                    if(lives.childCount > 0)
-                        Destroy(lives.GetChild(i).gameObject);
+                    if(lifeHolder.childCount > 0)
+                        Destroy(lifeHolder.GetChild(i).gameObject);
                 }
             }
 
             if(_health <= 0) 
                 GameManager.inst.GameOver();
+
+            if (ignoreDamage) SetShield(false);
+        }
+
+        public void SetShield(bool isShieldActive)
+        {
+            ignoreDamage = isShieldActive;
+            shield.SetActive(isShieldActive);
         }
     }
 }

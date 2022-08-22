@@ -1,14 +1,10 @@
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PowerupSpawner : Spawner
 {
-    private Camera _cam;
-    
     protected override void Awake()
     {
         base.Awake();
-        _cam = Camera.main;
         onSpawn += SpawnPowerup;
     }
 

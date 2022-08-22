@@ -1,6 +1,3 @@
-using UnityEngine;
-using Random = UnityEngine.Random;
-
 public class AsteroidSpawner : Spawner
 {
     protected override void Awake()

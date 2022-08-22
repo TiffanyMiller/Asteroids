@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Powerups;
 using Ship;
 using UnityEngine;
 
@@ -7,22 +9,27 @@ namespace Combat
     [RequireComponent(typeof(SpaceshipController))]
     public class ShipAttackHandler : MonoBehaviour
     {
+        public static ShipAttackHandler inst;
         private SpaceshipController _shipController;
-        [SerializeField] private Weapon starter, blaster;
+        
+        [SerializeField] private Weapon burster;
+
+        private float ShipSpeed() => _shipController.GetComponent<Rigidbody2D>().velocity.magnitude;
 
         private void Awake()
         {
+            inst = this;
             _shipController = GetComponent<SpaceshipController>();
-            _shipController.onShoot = StartAttack;
+            _shipController.onShoot = BurstAttack;
         }
-        
-        private void Shoot(Weapon weapon, Vector2 dir, Vector3 rot)
+
+        public void Shoot(Weapon weapon)
         {
-            var p = ObjectPooler.inst.SpawnFromPool(weapon.projectile.name, transform.localPosition + (transform.up / 2), rot);
-            var shipSpeed = _shipController.GetComponent<Rigidbody2D>().velocity.magnitude;
-            
+            var tr = transform;
+            var p = ObjectPooler.inst.SpawnFromPool(weapon.projectile.name, tr.localPosition + (tr.up / 2), tr.localEulerAngles);
+
             var rb = p.GetComponent<Rigidbody2D>();
-            rb.AddForce(dir * (weapon.fireSpeed + shipSpeed), ForceMode2D.Impulse);
+            rb.AddForce(tr.up * (weapon.fireSpeed + ShipSpeed()), ForceMode2D.Impulse);
 
             StartCoroutine(Deactivate(p));
         }
@@ -30,32 +37,27 @@ namespace Combat
         private IEnumerator Deactivate(GameObject projectile)
         {
             yield return new WaitForSeconds(2);
-            
+
             projectile.SetActive(false);
         }
 
+        #region Attack Types
+
         private IEnumerator Burst(Weapon weapon)
         {
-            var tr = transform;
-            var dir = tr.up;
-            var rot = tr.localEulerAngles;
-            
             for (var i = 0; i < weapon.bursts; i++)
             {
-                Shoot(weapon, dir, rot);
+                Shoot(weapon);
 
                 yield return new WaitForSeconds(weapon.fireRate);
             }
         }
 
-        private void StartAttack()
+        private void BurstAttack()
         {
-            StartCoroutine(Burst(starter));
+            StartCoroutine(Burst(burster));
         }
-        
-        private void BlastAttack()
-        {
-        
-        }
+
+        #endregion
     }
 }
