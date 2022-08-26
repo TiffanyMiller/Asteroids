@@ -262,7 +262,7 @@ MonoBehaviour:
   pools:
   - tag: Asteroid
     prefab: {fileID: 3476396937809490579, guid: 44fc7f7c98741954aaf31ac8b89c2042, type: 3}
-    size: 10
+    size: 100
   - tag: Projectile Sharp
     prefab: {fileID: 1224422388144567114, guid: 7415a50f3e07fdf4e8c8d237968bc7e5, type: 3}
     size: 30
@@ -1091,6 +1091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsUntilSpawn: 2
+  rateOfProgression: 0.01
+  minSecondsUntilSpawn: 0
 --- !u!4 &1696038922
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,6 +1120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsUntilSpawn: 8
+  rateOfProgression: 0
+  minSecondsUntilSpawn: 0
 --- !u!1 &1703810872
 GameObject:
   m_ObjectHideFlags: 0

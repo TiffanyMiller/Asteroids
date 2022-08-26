@@ -69,11 +69,11 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\AsteroidSpawner.cs" />
      <Compile Include="Assets\Scripts\CountdownTimer.cs" />
+     <Compile Include="Assets\Scripts\Powerups\Barrier.cs" />
      <Compile Include="Assets\Scripts\ScreenWrapper.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipMovementHandler.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipHealthHandler.cs" />
-     <Compile Include="Assets\Scripts\Powerups\Barrier.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

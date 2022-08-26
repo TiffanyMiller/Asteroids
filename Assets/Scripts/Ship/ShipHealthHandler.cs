@@ -43,8 +43,18 @@ namespace Ship
 
                 for (var i = 0; i < enemy.Damage; i++)
                 {
-                    if(lifeHolder.childCount > 0)
+                    if (lifeHolder.childCount > 0 && enemy.Damage <= lifeHolder.childCount)
+                    {
                         Destroy(lifeHolder.GetChild(i).gameObject);
+                    }
+                    else if (enemy.Damage > lifeHolder.childCount)
+                    {
+                        // Destroy all lives if damage is greater than the number of lives
+                        for (var j = 0; j < lifeHolder.childCount; j++)
+                        {
+                            Destroy(lifeHolder.GetChild(j).gameObject);
+                        }
+                    }
                 }
             }
 

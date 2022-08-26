@@ -7,8 +7,14 @@ public class Spawner : MonoBehaviour
     private enum Direction { Left, Right, Top, Bottom }
     private Direction _dir;
     private Camera _cam;
-    [SerializeField] private float secondsUntilSpawn;
     
+    [Tooltip("How many seconds are there until the next spawn (lowest difficulty)?")]
+    [SerializeField] private float secondsUntilSpawn;
+    [Tooltip("How quickly does the rate progress from max seconds to min seconds? Set this value to 0 if you would like the rate to be fixed (fixed difficulty).")]
+    [SerializeField] private float rateOfProgression;
+    [Tooltip("The minimum seconds between each spawn (highest difficulty). Check that there are enough asteroids in the object pool to support this.")]
+    [SerializeField] private float minSecondsUntilSpawn;
+
     protected Action onSpawn;
     private CountdownTimer _timer;
 
@@ -29,6 +35,10 @@ public class Spawner : MonoBehaviour
             
         if(_timer.IsTimerComplete()) 
             _timer.Set(secondsUntilSpawn, onSpawn);
+
+        if (secondsUntilSpawn > minSecondsUntilSpawn)
+            secondsUntilSpawn -= rateOfProgression * Time.deltaTime;
+        else secondsUntilSpawn = minSecondsUntilSpawn;
     }
     
     protected Vector3 RandomAngleInDirection()
