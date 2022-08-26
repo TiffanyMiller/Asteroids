@@ -29,7 +29,8 @@ public class ScreenWrapper : MonoBehaviour
 
         if (_outOfBoundsX && _outOfBoundsY) return;
 
-        ScreenWrap();
+        if(GameManager.inst.startGame)
+            ScreenWrap();
     }
 
     private void ScreenWrap()
@@ -50,7 +51,7 @@ public class ScreenWrapper : MonoBehaviour
             _newPos.y = -_newPos.y;
             _outOfBoundsY = true;
         }
-
+        
         transform.position = _newPos;
     }
 }

@@ -20,6 +20,12 @@ namespace Ship
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
+                Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            {
+                GameManager.inst.startGame = true;
+            }
+            
             if (Input.GetKeyDown(KeyCode.Space))
                 onShoot?.Invoke();
 

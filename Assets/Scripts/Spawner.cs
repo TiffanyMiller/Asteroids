@@ -31,7 +31,8 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        _timer.Run();
+        if(GameManager.inst.startGame)
+            _timer.Run();
             
         if(_timer.IsTimerComplete()) 
             _timer.Set(secondsUntilSpawn, onSpawn);

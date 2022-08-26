@@ -166,4 +166,3 @@ MonoBehaviour:
   divisions: 2
   pointsPerFinalPieces: 10
   moveSpeed: 2
-  lifetime: 10
