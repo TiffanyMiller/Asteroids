@@ -8,6 +8,7 @@ namespace Combat
         private Rigidbody2D _rb;
         [SerializeField] private ObjectPool asteroidPool;
         
+        [Range(1, 5)]
         [SerializeField] private int stepsToDestroy = 3;
         [Tooltip("The number of pieces the asteroid splits into when it breaks")]
         [SerializeField] private int divisions = 2;

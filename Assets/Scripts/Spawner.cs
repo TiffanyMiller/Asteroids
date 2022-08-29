@@ -31,15 +31,17 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.inst.GameHasStarted)
+        if (GameManager.inst.GameHasStarted)
+        {
             _timer.Run();
             
-        if(_timer.IsTimerComplete()) 
-            _timer.Set(secondsUntilSpawn, onSpawn);
+            if(_timer.IsTimerComplete()) 
+                _timer.Set(secondsUntilSpawn, onSpawn);
 
-        if (secondsUntilSpawn > minSecondsUntilSpawn)
-            secondsUntilSpawn -= rateOfProgression * Time.deltaTime;
-        else secondsUntilSpawn = minSecondsUntilSpawn;
+            if (secondsUntilSpawn > minSecondsUntilSpawn)
+                secondsUntilSpawn -= rateOfProgression * Time.deltaTime;
+            else secondsUntilSpawn = minSecondsUntilSpawn;
+        }
     }
     
     protected Vector3 RandomAngleInDirection()

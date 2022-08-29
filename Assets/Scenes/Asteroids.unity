@@ -923,6 +923,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 11400000, guid: d87796d8624c27648bdff965c27a4de8, type: 2}
+  move: 273
+  leftRotate: 276
+  rightRotate: 275
+  shoot: 32
 --- !u!212 &1130997961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1731,7 +1735,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1827786242

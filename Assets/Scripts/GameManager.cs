@@ -1,3 +1,4 @@
+using Ship;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager inst;
 
-    public bool GameHasStarted => CutsceneAnimation.cutsceneComplete;
+    public bool GameHasStarted => CutsceneAnimation.cutsceneComplete && SpaceshipController.firstKeyPressed;
 
     private int _score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
