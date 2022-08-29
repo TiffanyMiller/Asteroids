@@ -59,7 +59,7 @@
      <Compile Include="Assets\Scripts\MoveVelocity.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
      <Compile Include="Assets\Scripts\Combat\ShipAttackHandler.cs" />
-     <Compile Include="Assets\Scripts\Powerups\Blaster.cs" />
+     <Compile Include="Assets\Scripts\Powerups\BlasterPowerup.cs" />
      <Compile Include="Assets\Scripts\Ship\SpaceshipController.cs" />
      <Compile Include="Assets\Scripts\ScreenWrapper.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
@@ -76,11 +76,13 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\AsteroidSpawner.cs" />
      <Compile Include="Assets\Scripts\CountdownTimer.cs" />
-     <Compile Include="Assets\Scripts\Powerups\Barrier.cs" />
+     <Compile Include="Assets\Scripts\Powerups\BarrierPowerup.cs" />
      <Compile Include="Assets\Scripts\CutsceneAnimation.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipHealthHandler.cs" />
      <Compile Include="Assets\Scripts\Combat\BursterWeapon.cs" />
+     <Compile Include="Assets\Scripts\Combat\IWeapon.cs" />
+     <Compile Include="Assets\Scripts\Combat\WeaponType.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

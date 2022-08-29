@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 1130997966}
   - component: {fileID: 1130997967}
   - component: {fileID: 1130997965}
+  - component: {fileID: 1130997968}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Player
@@ -1046,7 +1047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePool: {fileID: 11400000, guid: 8c7fe76cbab928140b35d41b7430f245, type: 2}
-  startWeapon: {fileID: 11400000, guid: 333cc46bc8e65b24c899a0c41987fccb, type: 2}
+  startWeapon: {fileID: 1130997968}
 --- !u!114 &1130997967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,6 +1064,19 @@ MonoBehaviour:
   life: {fileID: 2226846667517976153, guid: 6076995e7d0bd7e4597eca2c26f95292, type: 3}
   shield: {fileID: 1785433077}
   ignoreDamage: 0
+--- !u!114 &1130997968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130997959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49776a289c2b2074e934c0d44041ce51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponStats: {fileID: 11400000, guid: 333cc46bc8e65b24c899a0c41987fccb, type: 2}
 --- !u!1 &1158119258
 GameObject:
   m_ObjectHideFlags: 0

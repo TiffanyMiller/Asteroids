@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Powerups;
 using Ship;
 using UnityEngine;
 
@@ -13,7 +11,7 @@ namespace Combat
         private SpaceshipController _shipController;
 
         [SerializeField] private ObjectPool projectilePool;
-        [SerializeField] private Weapon startWeapon;
+        [SerializeField] private WeaponType startWeapon;
 
         private float ShipSpeed() => _shipController.GetComponent<Rigidbody2D>().velocity.magnitude;
 
@@ -21,7 +19,7 @@ namespace Combat
         {
             inst = this;
             _shipController = GetComponent<SpaceshipController>();
-            _shipController.onShoot = startWeapon.attack;
+            _shipController.onShoot = startWeapon.GetComponent<IWeapon>().Attack;
             
             projectilePool.SetupPool();
         }
@@ -43,24 +41,5 @@ namespace Combat
 
             projectile.SetActive(false);
         }
-
-        #region Attack Types
-
-        private IEnumerator Burst(Weapon weapon)
-        {
-            for (var i = 0; i < weapon.bursts; i++)
-            {
-                Shoot(weapon);
-
-                yield return new WaitForSeconds(weapon.fireRate);
-            }
-        }
-
-        private void BurstAttack()
-        {
-            StartCoroutine(Burst(startWeapon));
-        }
-
-        #endregion
     }
 }

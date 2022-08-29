@@ -3,23 +3,21 @@ using UnityEngine;
 
 namespace Combat
 {
-    public class BursterWeapon : MonoBehaviour
+    public class BursterWeapon : WeaponType, IWeapon
     {
-        [SerializeField] private Weapon weapon;
-        
-        private IEnumerator Burst(Weapon weapon)
+        private IEnumerator Burst()
         {
-            for (var i = 0; i < weapon.bursts; i++)
+            for (var i = 0; i < weaponStats.bursts; i++)
             {
-                ShipAttackHandler.inst.Shoot(weapon);
+                ShipAttackHandler.inst.Shoot(weaponStats);
 
-                yield return new WaitForSeconds(weapon.fireRate);
+                yield return new WaitForSeconds(weaponStats.fireRate);
             }
         }
 
-        private void BurstAttack()
+        public void Attack()
         {
-            StartCoroutine(Burst(weapon));
+            StartCoroutine(Burst());
         }
     }
 }

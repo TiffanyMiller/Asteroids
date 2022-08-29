@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Powerups
 {
-    public class Blaster : Powerup
+    public class BlasterPowerup : Powerup
     {
         private CountdownTimer _timer;
         [SerializeField] private Weapon blasterWeapon;

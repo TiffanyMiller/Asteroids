@@ -1,9 +1,8 @@
 using Ship;
-using UnityEngine;
 
 namespace Powerups
 {
-    public class Barrier : Powerup
+    public class BarrierPowerup : Powerup
     {
         private ShipHealthHandler _shipHealth;
 
