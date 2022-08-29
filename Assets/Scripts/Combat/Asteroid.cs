@@ -7,13 +7,15 @@ namespace Combat
     public class Asteroid : MonoBehaviour, IEnemy, IPooledObject
     {
         private Rigidbody2D _rb;
+        [SerializeField] private ObjectPool asteroidPool;
+        
         [SerializeField] private int stepsToDestroy = 3;
         [Tooltip("The number of pieces the asteroid splits into when it breaks")]
         [SerializeField] private int divisions = 2;
 
         [SerializeField] private int pointsPerFinalPieces = 10;
         [SerializeField] private float moveSpeed = 10f;
-
+        
         public int Damage => stepsToDestroy;
 
         private void Awake()
@@ -63,7 +65,7 @@ namespace Combat
             for (var i = 0; i < divisions; i++)
             {
                 var broken =
-                    ObjectPooler.inst.SpawnFromPool("Asteroid", new Vector2(xPos, tr.position.y), RandomAngleZ());
+                    asteroidPool.SpawnFromPool("Asteroid", new Vector2(xPos, tr.position.y), RandomAngleZ());
                 
                 xPos += dist * 2;
                 broken.transform.localScale = transform.localScale / divisions;

@@ -1,12 +1,17 @@
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PowerupSpawner : Spawner
 {
     public static bool powerupActive = false;
+    [SerializeField] private ObjectPool powerupPool;
     
     protected override void Awake()
     {
         base.Awake();
+        
+        powerupPool.SetupPool();
+        
         onSpawn += SpawnPowerup;
     }
 
@@ -17,10 +22,10 @@ public class PowerupSpawner : Spawner
 
     private void SpawnPowerup()
     {
-        var randBool = Random.value > 0.5f;
-        var randPowerup = randBool ? "Barrier" : "Blaster";
+        var randomPoolIndex = Random.Range(0, powerupPool.pools.Count);
+        var randomFromPool = powerupPool.pools[randomPoolIndex].tag;
         
         if(!powerupActive)
-            ObjectPooler.inst.SpawnFromPool(randPowerup, RandomEdgePos(), RandomAngleInDirection());
+            powerupPool.SpawnFromPool(randomFromPool, RandomEdgePos(), RandomAngleInDirection());
     }
 }

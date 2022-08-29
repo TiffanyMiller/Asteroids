@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911e87332fcf4b34397177ec986d5e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroidPool: {fileID: 11400000, guid: 6aa0054db21a595418f01e27550b4135, type: 2}
   stepsToDestroy: 3
   divisions: 2
   pointsPerFinalPieces: 10

@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a93c36da6f7182e4096ca2c951efbf42, type: 3}
   moveSpeed: 5
   moveDamp: 0.5
-  rotationSpeed: 5
+  rotationSpeed: 4
   rotationDamp: 0.05
   startHealth: 3

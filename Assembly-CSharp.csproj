@@ -72,7 +72,7 @@
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Ship\Spaceship.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />
-     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
+     <Compile Include="Assets\Scripts\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\AsteroidSpawner.cs" />
      <Compile Include="Assets\Scripts\CountdownTimer.cs" />
@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\CutsceneAnimation.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipHealthHandler.cs" />
+     <Compile Include="Assets\Scripts\Combat\BursterWeapon.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

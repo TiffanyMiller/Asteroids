@@ -11,8 +11,9 @@ namespace Combat
     {
         public static ShipAttackHandler inst;
         private SpaceshipController _shipController;
-        
-        [SerializeField] private Weapon burster;
+
+        [SerializeField] private ObjectPool projectilePool;
+        [SerializeField] private Weapon startWeapon;
 
         private float ShipSpeed() => _shipController.GetComponent<Rigidbody2D>().velocity.magnitude;
 
@@ -20,13 +21,15 @@ namespace Combat
         {
             inst = this;
             _shipController = GetComponent<SpaceshipController>();
-            _shipController.onShoot = BurstAttack;
+            _shipController.onShoot = startWeapon.attack;
+            
+            projectilePool.SetupPool();
         }
 
         public void Shoot(Weapon weapon)
         {
             var tr = transform;
-            var p = ObjectPooler.inst.SpawnFromPool(weapon.projectile.name, tr.localPosition + (tr.up / 2), tr.localEulerAngles);
+            var p = projectilePool.SpawnFromPool(weapon.projectile.name, tr.localPosition + (tr.up / 2), tr.localEulerAngles);
 
             var rb = p.GetComponent<Rigidbody2D>();
             rb.AddForce(tr.up * (weapon.fireSpeed + ShipSpeed()), ForceMode2D.Impulse);
@@ -55,7 +58,7 @@ namespace Combat
 
         private void BurstAttack()
         {
-            StartCoroutine(Burst(burster));
+            StartCoroutine(Burst(startWeapon));
         }
 
         #endregion

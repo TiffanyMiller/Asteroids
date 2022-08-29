@@ -1,8 +1,15 @@
+using UnityEngine;
+
 public class AsteroidSpawner : Spawner
 {
+    [SerializeField] private ObjectPool asteroidPool;
+    
     protected override void Awake()
     {
         base.Awake();
+        
+        asteroidPool.SetupPool();
+        
         onSpawn += SpawnAsteroid;
     }
 
@@ -13,6 +20,6 @@ public class AsteroidSpawner : Spawner
 
     private void SpawnAsteroid()
     {
-        ObjectPooler.inst.SpawnFromPool("Asteroid", RandomEdgePos(), RandomAngleInDirection());
+        asteroidPool.SpawnFromPool("Asteroid", RandomEdgePos(), RandomAngleInDirection());
     }
 }

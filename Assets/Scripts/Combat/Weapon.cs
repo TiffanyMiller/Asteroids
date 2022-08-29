@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Combat
@@ -10,5 +11,6 @@ namespace Combat
         [SerializeField] internal float bursts = 3;
         [SerializeField] internal float fireRate = 0.08f;
         [SerializeField] internal float duration = 1f;
+        [SerializeField] internal Action attack;
     }
 }
