@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.inst.startGame)
+        if(GameManager.inst.GameHasStarted)
             _timer.Run();
             
         if(_timer.IsTimerComplete()) 

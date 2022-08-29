@@ -9,7 +9,7 @@ namespace Ship
 
         internal Action onMove, onEndMove, onEndRotate, onShoot;
         internal Action<int> onRotate;
-
+        
         private void Awake()
         {
             GetComponent<SpriteRenderer>().sprite = ship.sprite;
@@ -20,23 +20,20 @@ namespace Ship
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
-                Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            if (GameManager.inst.GameHasStarted)
             {
-                GameManager.inst.startGame = true;
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Space))
-                onShoot?.Invoke();
+                if (Input.GetKeyDown(KeyCode.Space))
+                    onShoot?.Invoke();
 
-            if(Input.GetKey(KeyCode.W)) onMove?.Invoke();
-            else onEndMove?.Invoke();
-        
-            if (Input.GetKey(KeyCode.A)) onRotate.Invoke(1);
-        
-            if (Input.GetKey(KeyCode.D)) onRotate.Invoke(-1);
-        
-            if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) onEndRotate.Invoke();
+                if(Input.GetKey(KeyCode.W)) onMove?.Invoke();
+                else onEndMove?.Invoke();
+    
+                if (Input.GetKey(KeyCode.A)) onRotate.Invoke(1);
+    
+                if (Input.GetKey(KeyCode.D)) onRotate.Invoke(-1);
+    
+                if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) onEndRotate.Invoke();
+            }
         }
     }
 }

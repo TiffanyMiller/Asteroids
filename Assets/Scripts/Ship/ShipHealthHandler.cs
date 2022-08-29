@@ -61,7 +61,11 @@ namespace Ship
             if(_health <= 0) 
                 GameManager.inst.GameOver();
 
-            if (ignoreDamage) SetShield(false);
+            if (ignoreDamage)
+            {
+                SetShield(false);
+                PowerupSpawner.powerupActive = false;
+            }
         }
 
         public void SetShield(bool isShieldActive)

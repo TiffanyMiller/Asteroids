@@ -2,6 +2,8 @@ using Random = UnityEngine.Random;
 
 public class PowerupSpawner : Spawner
 {
+    public static bool powerupActive = false;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -17,6 +19,8 @@ public class PowerupSpawner : Spawner
     {
         var randBool = Random.value > 0.5f;
         var randPowerup = randBool ? "Barrier" : "Blaster";
-        ObjectPooler.inst.SpawnFromPool(randPowerup, RandomEdgePos(), RandomAngleInDirection());
+        
+        if(!powerupActive)
+            ObjectPooler.inst.SpawnFromPool(randPowerup, RandomEdgePos(), RandomAngleInDirection());
     }
 }

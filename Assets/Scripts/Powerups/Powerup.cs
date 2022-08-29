@@ -29,9 +29,10 @@ namespace Powerups
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            if (col.gameObject.CompareTag("Projectile"))
+            if (col.gameObject.CompareTag("Projectile") || col.gameObject.CompareTag("Player"))
             {
                 onEffect?.Invoke();
+                PowerupSpawner.powerupActive = true;
                 SetVisible(false);
             }
         }

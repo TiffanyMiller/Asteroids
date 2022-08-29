@@ -33,6 +33,7 @@ namespace Powerups
         private void StopShooting()
         {
             CancelInvoke(nameof(ShootBlaster));
+            PowerupSpawner.powerupActive = false;
             gameObject.SetActive(false);
         }
         

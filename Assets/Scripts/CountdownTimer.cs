@@ -4,7 +4,7 @@ using UnityEngine;
 public class CountdownTimer
 {
    private Action _actionOnTimer;
-   public float _timer;
+   private float _timer;
 
    public void Set(float timer, Action actionOnTimer)
    {

@@ -29,7 +29,7 @@ public class ScreenWrapper : MonoBehaviour
 
         if (_outOfBoundsX && _outOfBoundsY) return;
 
-        if(GameManager.inst.startGame)
+        if(GameManager.inst.GameHasStarted)
             ScreenWrap();
     }
 
